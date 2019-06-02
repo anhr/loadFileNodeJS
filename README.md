@@ -7,7 +7,7 @@ These built JavaScript files bundle all the necessary dependencies to run loadFi
 
 In your `head` tag, include the following code:
 ```html
-<script src="https://raw.githack.com/anhr/loadScriptNodeJS/master/build/loadFile.js"></script>
+<script src="https://raw.githack.com/anhr/loadFileNodeJS/master/build/loadFile.js"></script>
 ```
 
 Now you can use window.loadFile for synchronous download of the file.
