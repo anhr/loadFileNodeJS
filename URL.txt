@@ -1,5 +1,5 @@
 test page
-https://raw.githack.com/anhr/loadScriptNodeJS/master/index.html
+https://raw.githack.com/anhr/loadFileNodeJS/master/index.html
 --------------------------------
 Building loadScript
 
