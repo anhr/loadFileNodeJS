@@ -13,10 +13,6 @@
 //The myRequest is cross-browser XMLHttpRequest wrapper.
 function myRequest( options ) {
 
-	options = options || {};
-//	options.onload = options.onload || function () { };
-	options.onerror = options.onerror || function () { };
-
 	this.loadXMLDoc = function () {
 		var req;
 
@@ -216,7 +212,6 @@ function myRequest( options ) {
 
 }
 
-
 //Synchronous load file
 //@param url: URL of an external file for downloading.
 //@returns file content
@@ -224,6 +219,11 @@ function myRequest( options ) {
 //@example
 //document.getElementById( "elID" ).innerHTML = loadFile.sync('element.html');
 function sync( url, options ) {
+
+	options = options || {};
+	options.onload = options.onload || function () { };
+	options.onerror = options.onerror || function () { };
+
 	var response,
 		request = new myRequest( options );
 	request.url = url;
@@ -250,4 +250,24 @@ function sync( url, options ) {
 
 }
 
-export { sync };
+function escapeHtml( str ) {
+
+	return str.replace( /[&<>"'\/]/g, function ( s ) {
+
+		var entityMap = {
+
+			"&": "&amp;",
+			"<": "&lt;",
+			">": "&gt;",
+			'"': '&quot;',
+			"'": '&#39;',
+			"/": '&#x2F;'
+
+		};
+
+		return entityMap[s];
+
+	} );
+}
+
+export { sync, escapeHtml };

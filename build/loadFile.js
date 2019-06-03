@@ -15,9 +15,6 @@
 }(this, (function (exports) { 'use strict';
 
 function myRequest(options) {
-	options = options || {};
-	options.onload = options.onload || function () {};
-	options.onerror = options.onerror || function () {};
 	this.loadXMLDoc = function () {
 		var req;
 		if (window.XMLHttpRequest) {
@@ -173,6 +170,9 @@ function myRequest(options) {
 	}
 }
 function sync(url, options) {
+	options = options || {};
+	options.onload = options.onload || function () {};
+	options.onerror = options.onerror || function () {};
 	var response,
 	    request = new myRequest(options);
 	request.url = url;
@@ -187,8 +187,22 @@ function sync(url, options) {
 	);
 	return response;
 }
+function escapeHtml(str) {
+	return str.replace(/[&<>"'\/]/g, function (s) {
+		var entityMap = {
+			"&": "&amp;",
+			"<": "&lt;",
+			">": "&gt;",
+			'"': '&quot;',
+			"'": '&#39;',
+			"/": '&#x2F;'
+		};
+		return entityMap[s];
+	});
+}
 
 exports.sync = sync;
+exports.escapeHtml = escapeHtml;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
