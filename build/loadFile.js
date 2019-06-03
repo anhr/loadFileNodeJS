@@ -14,7 +14,10 @@
 	(factory((global.loadFile = {})));
 }(this, (function (exports) { 'use strict';
 
-function myRequest(data) {
+function myRequest(options) {
+	options = options || {};
+	options.onload = options.onload || function () {};
+	options.onerror = options.onerror || function () {};
 	this.loadXMLDoc = function () {
 		var req;
 		if (window.XMLHttpRequest) {
@@ -146,10 +149,10 @@ function myRequest(data) {
 		}
 		return text;
 	};
-	if (data) {
-		this.req = data.req;
-		this.url = data.url;
-		this.params = data.params;
+	if (options.data) {
+		this.req = options.data.req;
+		this.url = options.data.url;
+		this.params = options.data.params;
 	} else {
 		try {
 			this.req = this.loadXMLDoc();
@@ -164,18 +167,20 @@ function myRequest(data) {
 		consoleError("Invalid myRequest.req: " + this.req);
 		return;
 	}
+	function ErrorMessage(error) {
+		console.error(error);
+		options.onerror(error);
+	}
 }
-function ErrorMessage(error) {
-	console.error(error);
-}
-function sync(url) {
-	var response;
-	var request = new myRequest();
+function sync(url, options) {
+	var response,
+	    request = new myRequest(options);
 	request.url = url;
 	request.XMLHttpRequestStart(function () {
 		request.ProcessReqChange(function (myRequest) {
 			if (myRequest.processStatus200Error()) return;
 			response = myRequest.req.responseText;
+			options.onload(response);
 			return;
 		});
 	}, false

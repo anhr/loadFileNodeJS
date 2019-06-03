@@ -11,7 +11,11 @@
  */
 
 //The myRequest is cross-browser XMLHttpRequest wrapper.
-function myRequest( data ) {
+function myRequest( options ) {
+
+	options = options || {};
+//	options.onload = options.onload || function () { };
+	options.onerror = options.onerror || function () { };
 
 	this.loadXMLDoc = function () {
 		var req;
@@ -181,10 +185,10 @@ function myRequest( data ) {
 		return text;
 	}
 
-	if ( data ) {
-		this.req = data.req;
-		this.url = data.url;
-		this.params = data.params;
+	if ( options.data ) {
+		this.req = options.data.req;
+		this.url = options.data.url;
+		this.params = options.data.params;
 	} else {
 		try {
 			this.req = this.loadXMLDoc();
@@ -202,13 +206,16 @@ function myRequest( data ) {
 		consoleError( "Invalid myRequest.req: " + this.req );
 		return;
 	}
+
+	function ErrorMessage( error ) {
+
+		console.error( error );
+		options.onerror( error );
+
+	}
+
 }
 
-function ErrorMessage( error ) {
-
-	console.error( error );
-
-}
 
 //Synchronous load file
 //@param url: URL of an external file for downloading.
@@ -216,9 +223,9 @@ function ErrorMessage( error ) {
 //
 //@example
 //document.getElementById( "elID" ).innerHTML = loadFile.sync('element.html');
-function sync( url ) {
-	var response;
-	var request = new myRequest();
+function sync( url, options ) {
+	var response,
+		request = new myRequest( options );
 	request.url = url;
 	request.XMLHttpRequestStart(
 
@@ -226,9 +233,10 @@ function sync( url ) {
 
 			request.ProcessReqChange( function ( myRequest ) {//processStatus200
 
-					if ( myRequest.processStatus200Error() )
-						return;
-					response = myRequest.req.responseText;
+				if ( myRequest.processStatus200Error() )
+					return;
+				response = myRequest.req.responseText;
+				options.onload( response );
 				return;
 
 			} );

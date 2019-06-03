@@ -17,8 +17,30 @@
 		<div>Result of testing of the synchronous download of the element.html file: <span id="syncres"></span></div>
 	</p>
 	<script type="text/javascript">
-		//Synchronous download of the element.html file into "syncres" element
-		document.getElementById( "syncres" ).innerHTML = loadFile.sync('element.html');
+		document.getElementById( "syncres" ).innerHTML = loadFile.sync( 'element.html' );
+	</script>
+
+	<p>
+		<div>Result of testing of the synchronous download of the element.html file into another node: <span id="syncotherres"></span></div>
+	</p>
+	<script type="text/javascript">
+		document.getElementById( "syncotherres").innerHTML = loadFile.sync( 'element.html',
+		{
+			onload: function ( response ) {
+
+				var str = 'file has been loaded successfully';
+				console.log( str );
+				//elSync2Res.innerHTML = escapeHtml( response );
+
+			},
+			onerror: function ( str ) {
+
+				//elSync2Res.style.color = 'red';
+				//elSync2Res.innerHTML = str;
+
+			},
+		},
+	);
 	</script>
 
 </body>
