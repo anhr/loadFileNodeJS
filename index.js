@@ -212,12 +212,26 @@ function myRequest( options ) {
 
 }
 
-//Synchronous load file
-//@param url: URL of an external file for downloading.
+//
+//@param url: 
 //@returns file content
 //
-//@example
-//document.getElementById( "elID" ).innerHTML = loadFile.sync('element.html');
+/**
+ * @callback onerror
+ * @param {string} str - error details
+ * @param {Object} e - event
+ */
+
+/**
+ * Synchronous load file
+ * @param {string} url URL of an external file.
+ * @param {Object} [options] followed options is available. Default is undefined
+ * @param {Function} [options.onload] function () The onload event occurs when a script has been loaded. Default is undefined.
+ * @param {onerror} [options.onerror] function ( str, e ) The onerror event occurs when an error has been occured. Default is undefined.
+ * @param {}[options.appendTo] The node to which the new script will be append. Default is head node
+ * @example
+ * document.getElementById( "elID" ).innerHTML = loadFile.sync('element.html');
+ */
 function sync( url, options ) {
 
 	options = options || {};
@@ -250,6 +264,11 @@ function sync( url, options ) {
 
 }
 
+/**
+ * display a text to HTML
+ * @param {string} str source text
+ * @returns {string} escaped text
+ */
 function escapeHtml( str ) {
 
 	return str.replace( /[&<>"'\/]/g, function ( s ) {
