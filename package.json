@@ -4,7 +4,7 @@
   "description": "node.js version of the synchronous download of the file.",
   "main": "build/loadFile.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c && rollup -c rollup.config.min.js"
   },
   "repository": {
     "type": "git",
