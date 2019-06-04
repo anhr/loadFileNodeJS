@@ -22,10 +22,15 @@ Now you can use window.loadFile for synchronous download of the file.
 Synchronous download of the file.
 
 url: URL of an external file for downloading.
-[options] followed options is available. Default is undefined
+
+[options] followed options is available. Default is undefined.
+
 	[options.onload]: function () The onload event occurs when a script has been loaded. Default is undefined.
+
 	[options.onerror] function ( str ) The onerror event occurs when an error has been occured. Default is undefined.
+
 		str: error details.
+
 returns file content
 
 ### Example
