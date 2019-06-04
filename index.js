@@ -212,10 +212,10 @@ function myRequest( options ) {
 	}
 
 }
+
 /**
  * @callback onerror
  * @param {string} str - error details
- * @param {Object} e - event
  */
 
 /**
@@ -223,7 +223,7 @@ function myRequest( options ) {
  * @param {string} url URL of an external file.
  * @param {Object} [options] followed options is available. Default is undefined
  * @param {Function} [options.onload] function () The onload event occurs when a script has been loaded. Default is undefined.
- * @param {onerror} [options.onerror] function ( str, e ) The onerror event occurs when an error has been occured. Default is undefined.
+ * @param {onerror} [options.onerror] function ( str ) The onerror event occurs when an error has been occured. Default is undefined.
  * @returns {string} file content
  * @example
  * 
