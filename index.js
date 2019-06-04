@@ -1,5 +1,6 @@
 /**
  * node.js version of the synchronous download of the file.
+ * @author Andrej Hristoliubov https://anhr.github.io/AboutMe/
  *
  * Copyright 2011 Data Arts Team, Google Creative Lab
  *
@@ -211,11 +212,6 @@ function myRequest( options ) {
 	}
 
 }
-
-//
-//@param url: 
-//@returns file content
-//
 /**
  * @callback onerror
  * @param {string} str - error details
@@ -228,9 +224,29 @@ function myRequest( options ) {
  * @param {Object} [options] followed options is available. Default is undefined
  * @param {Function} [options.onload] function () The onload event occurs when a script has been loaded. Default is undefined.
  * @param {onerror} [options.onerror] function ( str, e ) The onerror event occurs when an error has been occured. Default is undefined.
- * @param {}[options.appendTo] The node to which the new script will be append. Default is head node
+ * @returns {string} file content
  * @example
- * document.getElementById( "elID" ).innerHTML = loadFile.sync('element.html');
+ * 
+	//Simplest example.
+	document.getElementById( "elID" ).innerHTML = loadFile.sync('element.html');
+ *
+ * @example
+ *
+	//onload, onerror events.
+	document.getElementById( "elID").innerHTML = loadFile.sync( 'element.html',
+	{
+		onload: function ( response ) {
+
+			var str = 'file has been loaded successfully';
+			console.log( str );
+
+		},
+		onerror: function ( str, e ) {
+
+			console.error( str );
+
+		},
+	},
  */
 function sync( url, options ) {
 
