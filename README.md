@@ -67,7 +67,7 @@ See [Example](https://raw.githack.com/anhr/loadFileNodeJS/master/).
 └── build - Compiled source code.
 ```
 
-## Building your own customController
+## Building your own loadFile
 
 In the terminal, enter the following:
 
