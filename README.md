@@ -33,13 +33,13 @@ Synchronous download of the file.
 
 	returns file content
 
-### Example
+#### Example
 ```
 //Synchronous download of the element.html file into "elID" element.
 document.getElementById( "elID" ).innerHTML = loadFile.sync('element.html');
 ```
 
-### Example 2
+#### Example 2
 ```
 //Synchronous download of the element.html file into "elID" element with events.
 document.getElementById( "elID" ).innerHTML = loadFile.sync(
