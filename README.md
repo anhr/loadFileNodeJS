@@ -14,7 +14,7 @@ or
 ```
 <script src="https://raw.githack.com/anhr/loadFileNodeJS/master/build/loadFile.min.js"></script>
 ```
-or you can import loadFile from loadFile.js file in your JavaScript module. [Example.](https://raw.githack.com/anhr/TreeElementNodeJS/master/Examples/module/) [Code of example.](https://github.com/anhr/TreeElementNodeJS/tree/master/Examples/module)
+or you can import loadFile from loadFile.js file in your JavaScript module. [Example.](https://raw.githack.com/anhr/TreeElementNodeJS/master/Examples/module/) [Code of example.](https://github.com/anhr/TreeElementNodeJS/blob/master/index.js)
 ```
 import { loadFile } from 'loadFile.js';
 ```
