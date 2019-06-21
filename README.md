@@ -14,6 +14,10 @@ or
 ```
 <script src="https://raw.githack.com/anhr/loadFileNodeJS/master/build/loadFile.min.js"></script>
 ```
+or you can import loadFile from loadFile.js file in your JavaScript module. [Example.](https://raw.githack.com/anhr/TreeElementNodeJS/master/Examples/module/) [Code of example.](https://github.com/anhr/TreeElementNodeJS/tree/master/Examples/module)
+```
+import { loadFile } from 'loadFile.js';
+```
 
 Now you can use window.loadFile for synchronous download of the file.
 

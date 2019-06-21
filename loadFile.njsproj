@@ -36,6 +36,7 @@
     <Content Include="index.html" />
     <Content Include="index.js" />
     <Content Include="licenseBanner.txt" />
+    <Content Include="loadFile.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="rollup.config.js" />
