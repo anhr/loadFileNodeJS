@@ -85,7 +85,7 @@ $ npm run build
 - npm run build - Build development and production version of scripts.
 
 ## Thanks
-The following libraries / open-source projects were used in the development of customController:
+The following libraries / open-source projects were used in the development of loadFile:
  * [Rollup](https://rollupjs.org)
  * [Node.js](http://nodejs.org/)
 
