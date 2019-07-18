@@ -19,4 +19,5 @@ var loadFile = {
 
 }
 
-export { loadFile };
+//export { loadFile };
+export default loadFile;

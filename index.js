@@ -246,7 +246,7 @@ function myRequest( options ) {
 			console.error( str );
 
 		},
-	},
+	}, );
  */
 function sync( url, options ) {
 
@@ -266,7 +266,7 @@ function sync( url, options ) {
 				if ( myRequest.processStatus200Error() )
 					return;
 				response = myRequest.req.responseText;
-				options.onload( response );
+				options.onload( response, url );
 				return;
 
 			} );

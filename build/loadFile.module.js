@@ -11,12 +11,6 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  */
 
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global.loadFile = {})));
-}(this, (function (exports) { 'use strict';
-
 function myRequest(options) {
 	this.loadXMLDoc = function () {
 		var req;
@@ -204,10 +198,5 @@ function escapeHtml(str) {
 	});
 }
 
-exports.sync = sync;
-exports.escapeHtml = escapeHtml;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
-//# sourceMappingURL=loadFile.js.map
+export { sync, escapeHtml };
+//# sourceMappingURL=loadFile.module.js.map
