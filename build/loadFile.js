@@ -183,6 +183,7 @@ function sync(url, options) {
 		request.ProcessReqChange(function (myRequest) {
 			if (myRequest.processStatus200Error()) return;
 			response = myRequest.req.responseText;
+			console.log('loadFile.sync.onload() ' + url);
 			options.onload(response, url);
 			return;
 		});

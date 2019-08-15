@@ -104,7 +104,7 @@ function myRequest( options ) {
 
 	this.ProcessReqChange = function ( processStatus200 ) {
 		var req = this.req;
-		if ( !isIE ) {
+		if ( ( typeof isIE === 'undefined' ) || !isIE ) {
 			//	console.log("processReqChange(); req.statusText: " + req.statusText + ". req.status = " + req.status + ". req.readyState = " + req.readyState + ". req.responseText: " + req.responseText);
 		}
 		// only if req shows "complete"
@@ -266,6 +266,7 @@ function sync( url, options ) {
 				if ( myRequest.processStatus200Error() )
 					return;
 				response = myRequest.req.responseText;
+				console.log( 'loadFile.sync.onload() ' + url );
 				options.onload( response, url );
 				return;
 
