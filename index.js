@@ -266,7 +266,7 @@ function sync( url, options ) {
 				if ( myRequest.processStatus200Error() )
 					return;
 				response = myRequest.req.responseText;
-				console.log( 'loadFile.sync.onload() ' + url );
+				//console.log( 'loadFile.sync.onload() ' + url );
 				options.onload( response, url );
 				return;
 
