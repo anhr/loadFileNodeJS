@@ -1,4 +1,7 @@
 ﻿# loadFile
+
+**Deprecated! Please go to [loadFile](https://github.com/anhr/commonNodeJS/tree/master/loadFileNodeJS).**
+
 The loadFile is node.js version of the synchronous download of the file.
 [Example](https://raw.githack.com/anhr/loadFileNodeJS/master/).
 
